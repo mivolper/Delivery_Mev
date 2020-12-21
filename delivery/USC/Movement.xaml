@@ -1,0 +1,109 @@
+﻿<UserControl x:Class="delivery.USC.Movement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             d:DesignHeight="715" d:DesignWidth="1300" Loaded="UserControl_Loaded">
+    <Grid  Background="#FF218280">
+        <Border Height="650" Width="1240" Background="Black" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Margin="0,0,30,30.2" CornerRadius="20" Grid.ColumnSpan="2">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="6"/>
+            </Border.Effect>
+        </Border>
+        <Border Height="140" Width="1225" Background="White" VerticalAlignment="Top" HorizontalAlignment="Right"  Margin="0 45 35 0" CornerRadius="20">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="6"/>
+            </Border.Effect>
+        </Border>
+        <Grid Background="Black" Height="145" Width="40" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,85,528.2" RenderTransformOrigin="5.67,0.401" ></Grid>
+        <Grid Background="Black" Height="143" Width="40" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,1168,528.2" RenderTransformOrigin="5.67,0.401" ></Grid>
+        <Grid Background="White" Height="15" Width="50" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,80,617.2" RenderTransformOrigin="1.328,0.347" >
+
+        </Grid>
+        <Grid Background="White" Height="15" Width="50" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,80,578.2" RenderTransformOrigin="4.511,0.5" >
+        </Grid>
+        <Grid Background="White" Height="15" Width="50" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,1165,617.2" RenderTransformOrigin="1.696,1.173" >
+
+        </Grid>
+        <Grid Background="White" Height="15" Width="50" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,1165,578.2" RenderTransformOrigin="4.511,0.5" >
+        </Grid>
+        <Border Height="495" Width="1220" VerticalAlignment="Bottom" Background="White" Margin="42,0,38,30" CornerRadius="20">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="6"/>
+            </Border.Effect>
+            <Grid>
+                <DataGrid  x:Name="dgvMovement"  FlowDirection="RightToLeft" HorizontalAlignment="Right" Background="White" Margin="15 10 20 80"  FontFamily="Hacen Saudi Arabia"  ItemsSource="{Binding}" AutoGenerateColumns="False" SelectionUnit="FullRow" IsReadOnly="False" SelectionMode="Extended" CanUserAddRows="False" SelectionChanged="dgvMovement_SelectionChanged"  >
+                    <DataGrid.Columns>
+                        <DataGridCheckBoxColumn  Width="70"  Binding="{Binding  Exist}" />
+                        <DataGridTextColumn Header="اسم المندوب" Width="120"  Binding="{Binding  Delegate}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="كود الزبون" Width="100"  Binding="{Binding  Customer}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="كود الطرد" Width="100"  Binding="{Binding Barcode}" IsReadOnly="True" Foreground="Blue"/>
+                        <DataGridTextColumn Header="الإقليم" Width="140"  Binding="{Binding  Province}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="المدينة" Width="160"  Binding="{Binding  City}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="مبلغ الطرود" Width="100"  Binding="{Binding  PackagePrice}" IsReadOnly="True" Foreground="Red"/>
+                        <DataGridTextColumn Header="سعر التوصيل" Width="100"  Binding="{Binding  DeliveryPrice}" IsReadOnly="True" Foreground="Green"/>
+                        <DataGridTextColumn Header="حالة البضاعة" Width="200"  Binding="{Binding  State}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="تاريخ الادخال" Width="100"  Binding="{Binding  Date}" IsReadOnly="True" Foreground="Red"/>
+                        <DataGridTextColumn Header="تاريخ الحالة" Width="100"  Binding="{Binding  DateState }" IsReadOnly="True" Foreground="Green"/>
+                        <DataGridTextColumn Header="عدد القطع" Width="100"  Binding="{Binding  PackageNumber}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="اسم المستلم" Width="150"  Binding="{Binding  Recipient}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="ملاحظة" Width="160"  Binding="{Binding  Note}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="اسم المستخدم" Width="150"  Binding="{Binding  User}" IsReadOnly="True"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Border>
+        <TextBox  x:Name="txtBarcode" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialdesign:HintAssist.Hint="كود الطرد" FontFamily="Hacen Saudi Arabia" FontSize="18" Width="100" Height="50" FlowDirection="RightToLeft" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,55,205,0" IsEnabled="False" />
+        <TextBox  x:Name="txtCode" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialdesign:HintAssist.Hint="كود الزبون" FontFamily="Hacen Saudi Arabia" FontSize="18" Width="100" Height="50" FlowDirection="RightToLeft" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,119,205,0" IsEnabled="False" />
+        <ComboBox  x:Name="cmbState" Style="{StaticResource MaterialDesignFloatingHintComboBox}" materialdesign:HintAssist.Hint="حالة البضاعة" FontFamily="Hacen Saudi Arabia" Width="250"  FontSize="18" FlowDirection="RightToLeft" IsReadOnly="True"  Margin="690,60,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top"  Background="White"  IsEnabled="False"/>
+        <ComboBox  x:Name="cmbProvince" Style="{StaticResource MaterialDesignFloatingHintComboBox}"    materialdesign:HintAssist.Hint="الاقليم" FontFamily="Hacen Saudi Arabia" Width="168"  FontSize="18" FlowDirection="RightToLeft" IsReadOnly="True"  Margin="466,60,0,0"  HorizontalAlignment="Left" VerticalAlignment="Top"  Background="White"  IsEnabled="False"/>
+        <DatePicker x:Name="txt_to_date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}"  Width="135" FontSize="18" FontFamily="Hacen Saudi Arabia" materialdesign:HintAssist.Hint="الى تاريخ " FlowDirection="RightToLeft" Height="50"  Margin="0,119,900,0" HorizontalAlignment="Right" VerticalAlignment="Top"  SelectedDateFormat="Short" IsEnabled="False" />
+        <DatePicker x:Name="txt_from_date" Style="{StaticResource MaterialDesignFloatingHintDatePicker}"  Width="135" FontSize="18" FontFamily="Hacen Saudi Arabia" materialdesign:HintAssist.Hint="من تاريخ" FlowDirection="RightToLeft" Height="50"  Margin="0,55,900,0" HorizontalAlignment="Right" VerticalAlignment="Top"  SelectedDateFormat="Short" IsEnabled="False" />
+        <Button   x:Name="btn_Search"  FontFamily="Hacen Saudi Arabia" Width="70" Height="52" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,122,1060,0" materialdesign:ShadowAssist.ShadowDepth="Depth3"  BorderThickness="6" BorderBrush="black"  Background="#FF218280" Foreground="White" FontSize="20" materialdesign:ButtonAssist.CornerRadius="10"  IsEnabled="True" Click="btn_Search_Click" >
+            <materialdesign:PackIcon Kind="Search" Width="35" Height="35" Foreground="Black" VerticalAlignment="Top" HorizontalAlignment="Right" BorderBrush="White" RenderTransformOrigin="0.41,0.08"  />
+        </Button>
+        <Button  x:Name="btnEdit"  Content="تعديل" FontFamily="Hacen Saudi Arabia" Width="124" Height="50" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,614,1116,0" materialdesign:ShadowAssist.ShadowDepth="Depth3"  BorderThickness="6" BorderBrush="black"  Background="#FF218280" Foreground="White" FontSize="20" materialdesign:ButtonAssist.CornerRadius="10" IsEnabled="True" Click="btnEdit_Click"/>
+        <Button  x:Name="btnPublish"  Content="رفع على النت" FontFamily="Hacen Saudi Arabia" Width="145" Height="50" VerticalAlignment="Top"  HorizontalAlignment="Left" Margin="202,613,0,0" materialdesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="6" BorderBrush="black"  Background="#FF218280" Foreground="White" FontSize="20"  materialdesign:ButtonAssist.CornerRadius="10"  IsEnabled="False" Click="btnPublish_Click"/>
+
+        <Grid Height="2" Width="1230" Background="Black" VerticalAlignment="Bottom"  Margin="42,0,28,106"/>
+        <TextBlock Text="عدد الطلبيات :" FlowDirection="RightToLeft" FontFamily="Hacen Saudi Arabia" FontSize="22" Foreground="Black" Margin="1082,0,0,51" Width="132" Height="40" HorizontalAlignment="Left" VerticalAlignment="Bottom" RenderTransformOrigin="0.137,0.625"/>
+        <TextBlock x:Name="txtTotalOrder" Text="0" FlowDirection="RightToLeft" FontFamily="Hacen Saudi Arabia" FontSize="22" Foreground="Blue" Margin="1016,0,0,51" Width="60" Height="40" HorizontalAlignment="Left" VerticalAlignment="Bottom" RenderTransformOrigin="0.276,0.5"/>
+        <TextBlock Text="اجمالي سعر التوصيل :" FlowDirection="RightToLeft" FontFamily="Hacen Saudi Arabia" FontSize="22" Foreground="Black" Margin="800,0,0,51" Width="199" Height="40" HorizontalAlignment="Left" VerticalAlignment="Bottom" RenderTransformOrigin="0.137,0.625"/>
+        <TextBlock x:Name="txtTotalDelivery" Text="0" FlowDirection="RightToLeft" FontFamily="Hacen Saudi Arabia" FontSize="22" Foreground="Green" Margin="702,0,0,51" Width="94" Height="40" HorizontalAlignment="Left" VerticalAlignment="Bottom" RenderTransformOrigin="0.276,0.5"/>
+        <TextBlock Text="اجمالي سعر الطرود :" FlowDirection="RightToLeft" FontFamily="Hacen Saudi Arabia" FontSize="22" Foreground="Black" Margin="495,0,0,51" Width="186" Height="40" HorizontalAlignment="Left" VerticalAlignment="Bottom" RenderTransformOrigin="0.137,0.625"/>
+        <TextBlock x:Name="txtTotalPackage" Text="0" FlowDirection="RightToLeft" FontFamily="Hacen Saudi Arabia" FontSize="22" Foreground="Red" Margin="352,0,0,51" Width="138" Height="40" HorizontalAlignment="Left" VerticalAlignment="Bottom" RenderTransformOrigin="0.276,0.5"/>
+        <CheckBox x:Name="cbxState"  FontFamily="Hacen Saudi Arabia" FlowDirection="RightToLeft" Background="#FF218280" FontSize="18" Margin="945,83,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"  Width="20" IsEnabled="True" RenderTransformOrigin="3.98,0.67" Click="cbxState_Click" />
+        <CheckBox x:Name="cbxDelegate"  FontFamily="Hacen Saudi Arabia" FlowDirection="RightToLeft" Background="#FF218280" FontSize="18" Margin="945,147,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="20" IsEnabled="True" Click="cbxDelegate_Click" RenderTransformOrigin="0.73,1.455"/>
+        <CheckBox x:Name="cbxProvince"  FontFamily="Hacen Saudi Arabia" FlowDirection="RightToLeft" Background="#FF218280" FontSize="18" Margin="639,83,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"  Width="20" IsEnabled="True" RenderTransformOrigin="-7.27,2.943" Click="cbxProvince_Click"/>
+        <CheckBox x:Name="cbxCity"  FontFamily="Hacen Saudi Arabia" FlowDirection="RightToLeft" Background="#FF218280" FontSize="18" Margin="639,147,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"  Width="20" IsEnabled="True" Click="cbxCity_Click"/>
+        <CheckBox x:Name="cbxDate"  FontFamily="Hacen Saudi Arabia" FlowDirection="RightToLeft" Background="#FF218280" FontSize="18" Margin="405,83,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"  Width="20" IsEnabled="True" RenderTransformOrigin="1.27,0.295" Click="cbxDate_Click"/>
+        <CheckBox x:Name="cbxBarcode"  FontFamily="Hacen Saudi Arabia" FlowDirection="RightToLeft" Background="#FF218280" FontSize="18" Margin="1100,83,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"  Width="20" IsEnabled="True" RenderTransformOrigin="1.27,0.295" Click="cbxBarcode_Click"/>
+        <CheckBox x:Name="cbxCode"  FontFamily="Hacen Saudi Arabia" FlowDirection="RightToLeft" Background="#FF218280" FontSize="18" Margin="1100,147,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"  Width="20" IsEnabled="True" RenderTransformOrigin="1.27,0.295" Click="cbxCode_Click"/>
+
+        <Grid x:Name="grdEdit" Width="650" Height="450">
+
+        </Grid>
+
+        <DataGrid  x:Name="dgvDelegate"  FlowDirection="RightToLeft" HorizontalAlignment="Right" Background="White" Margin="0,136,360,408.2"  FontFamily="Hacen Saudi Arabia"  ItemsSource="{Binding}" AutoGenerateColumns="False" SelectionUnit="FullRow" IsReadOnly="True" SelectionMode="Extended"  Width="170"  GridLinesVisibility="None" Visibility="Collapsed" SelectionChanged="dgvDelegate_SelectionChanged"  >
+            <DataGrid.Columns>
+                <DataGridTextColumn  Width="145"  Binding="{Binding  Name}"/>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox x:Name="txtDelegate" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialdesign:HintAssist.Hint="اسم المندوب" FontFamily="Hacen Saudi Arabia" FontSize="18" Width="170" Height="50" FlowDirection="RightToLeft" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,119,360,0" IsEnabled="False"   RenderTransformOrigin="1,0.46"  GotMouseCapture="txtDelegate_GotMouseCapture" TextChanged="txtDelegate_TextChanged" />
+        <DataGrid  x:Name="dgvCity"  FlowDirection="RightToLeft" HorizontalAlignment="Right" Background="White" Margin="0,136,666,408.2"  FontFamily="Hacen Saudi Arabia"  ItemsSource="{Binding}" AutoGenerateColumns="False" SelectionUnit="FullRow" IsReadOnly="True" SelectionMode="Extended"  Width="200"  GridLinesVisibility="None" Visibility="Collapsed" SelectionChanged="dgvCity_SelectionChanged"  >
+            <DataGrid.Columns>
+                <DataGridTextColumn  Width="180"  Binding="{Binding  CityName}" />
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox x:Name="txtCity" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialdesign:HintAssist.Hint="المدينة" FontFamily="Hacen Saudi Arabia" FontSize="18" Width="200" Height="50" FlowDirection="RightToLeft" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,119,666,0" IsEnabled="False"   RenderTransformOrigin="1,0.46" GotMouseCapture="txtCity_GotMouseCapture" TextChanged="txtCity_TextChanged" />
+
+        <Button   x:Name="btn_select"  FontFamily="Hacen Saudi Arabia" Width="70" Height="52" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,56,1060,0" materialdesign:ShadowAssist.ShadowDepth="Depth3"  BorderThickness="6" BorderBrush="black"  Background="#FF218280" Foreground="White" FontSize="20" materialdesign:ButtonAssist.CornerRadius="10"  IsEnabled="True" Click="btn_Search_Click" >
+            <materialdesign:PackIcon Kind="CheckAll" Width="35" Height="35" Foreground="Black" VerticalAlignment="Top" HorizontalAlignment="Right" BorderBrush="White" RenderTransformOrigin="0.41,0.08"  />
+        </Button>
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,92 @@
+﻿<UserControl x:Class="delivery.USC.users"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:delivery.USC"
+             mc:Ignorable="d" 
+             xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="715" d:DesignWidth="1300" Loaded="UserControl_Loaded">
+    <Grid  Background="#FF218280">
+        <Border Height="650" Width="1240" Background="Black" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Margin="0 0 30 30" CornerRadius="20" Grid.Column="2">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="6"/>
+            </Border.Effect>
+        </Border>
+        <Border Height="305" Width="575" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Margin="335 45 0 0" CornerRadius="20" Grid.ColumnSpan="3">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="6"/>
+            </Border.Effect>
+        </Border>
+        <TextBlock Text="صلاحيات المستخدم" Height="50" FontFamily="Hacen Saudi Arabia" FontSize="22" HorizontalAlignment="Right" Margin="0,66,582,599.2" Foreground="#FF218280" />
+
+        <Border Height="320" Width="1220" VerticalAlignment="Bottom" Background="White" Margin="40,0,35,35" CornerRadius="20" Grid.ColumnSpan="3">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="6"/>
+            </Border.Effect>
+            <DataGrid  x:Name="dgvUsers"  FlowDirection="RightToLeft" HorizontalAlignment="Right" Background="White" Margin="15 10 20 0"  FontFamily="Hacen Saudi Arabia"  ItemsSource="{Binding}" AutoGenerateColumns="False" SelectionUnit="FullRow" IsReadOnly="True" SelectionMode="Extended" SelectionChanged="dgvUsers_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="الرقم" Width="70" Binding="{Binding RowNum}"/>
+                    <DataGridTextColumn  Header="اسم المستخدم" Width="150" Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="كلمة المرور" Width="120"  Binding="{Binding pass}"/>
+                    <DataGridCheckBoxColumn Header="شاشة الطلبات" Width="105"  Binding="{Binding OrderPrm}" />
+                    <DataGridCheckBoxColumn Header="حركة البضاعة" Width="100"  Binding="{Binding MovementPrm}" />
+                    <DataGridCheckBoxColumn Header="اسعار التوصيل" Width="105"  Binding="{Binding CitieAndProvincePrm}" />
+                    <DataGridCheckBoxColumn Header="ادارة المندوبين" Width="105"  Binding="{Binding DelegatePrm}" />
+                    <DataGridCheckBoxColumn Header="اضافة زبون" Width="95"  Binding="{Binding CustomerPrm}" />
+                    <DataGridCheckBoxColumn Header="اضافة حالة جديدة" Width="110"  Binding="{Binding AddMovementNewPrm}" />
+                    <DataGridCheckBoxColumn Header="زر الحذف" Width="110"  Binding="{Binding BtnDelete}" />
+                    <DataGridCheckBoxColumn Header="ادارة المستخدمين" Width="120"  Binding="{Binding UsersPrm}" />
+                    <DataGridCheckBoxColumn Header="الاعدادات" Width="80"  Binding="{Binding SittingsPrm}" />
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+       
+
+        <Border Height="200" Width="340" Background="White" VerticalAlignment="Top" HorizontalAlignment="Right"  Margin="0 45 35 0" CornerRadius="20" Grid.Column="2">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="6"/>
+            </Border.Effect>
+        </Border>
+
+        <TextBlock Text="ادارة المستخدمين" FontFamily="Hacen Saudi Arabia" FontSize="25" HorizontalAlignment="Right" Margin="0,64,84,601.2" Foreground="#FF218280" Height="50" />
+        <Grid x:Name="grdtxt">
+            <TextBox   x:Name="txt_Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialdesign:HintAssist.Hint="اسم المستخدم" FontFamily="Hacen Saudi Arabia" Width="250" FontSize="18" FlowDirection="RightToLeft" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,112,85,0" IsEnabled="False"   />
+            <TextBox   x:Name="txt_pass" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialdesign:HintAssist.Hint="كلمة المرور" FontFamily="Hacen Saudi Arabia" Width="250" FontSize="18" FlowDirection="RightToLeft" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,165,85,0" IsEnabled="False"   />
+            <CheckBox  x:Name="cbxOrder" Content="شاشة الطلبات"  Height="50" HorizontalAlignment="Right" FlowDirection="RightToLeft" Margin="0,121,410,544.2" FontFamily="Hacen Saudi Arabia" Background="#FF218280" FontSize="20" IsEnabled="False" RenderTransformOrigin="0.501,1.1"/>
+            <CheckBox  x:Name="cbxMovement" Content="حركة البضاعة" Height="50" HorizontalAlignment="Right" FlowDirection="RightToLeft" Margin="0,185,410,480.2" FontFamily="Hacen Saudi Arabia" Background="#FF218280" FontSize="20" IsEnabled="False" RenderTransformOrigin="1.527,0.208"/>
+            <CheckBox  x:Name="cbxCitieAndProvince" Content="اسعار التوصيل" Height="50" HorizontalAlignment=" Right" FlowDirection=" RightToLeft" Margin="0,240,410,425" FontFamily="Hacen Saudi Arabia" Background="#FF218280" FontSize="20" IsEnabled="False"/>
+            <CheckBox  x:Name="cbxDelegate" Content="ادارة المندوبين" Height="50" HorizontalAlignment="Right" FlowDirection="RightToLeft" Margin="0,121,599,544.2" FontFamily="Hacen Saudi Arabia" Background="#FF218280" FontSize="20" IsEnabled="False"/>
+            <CheckBox  x:Name="cbxCustomer" Content="اضافة زبون" Height="50" HorizontalAlignment="Right" FlowDirection="RightToLeft" Margin="0,185,599,480.2" FontFamily="Hacen Saudi Arabia" Background="#FF218280" FontSize="20" IsEnabled="False"/>
+            <CheckBox  x:Name="cbxAddMovementNewPrm" Content="اضافة حالة جديدة" Height="50" HorizontalAlignment="Right" FlowDirection="RightToLeft" Margin="0,240,599,425" FontFamily="Hacen Saudi Arabia" Background="#FF218280" FontSize="20" IsEnabled="False"/>
+            <CheckBox  x:Name="cbxBtnDelete" Height="50" Content="زر الحذف" HorizontalAlignment="Right" FlowDirection="RightToLeft" Margin="0,121,786,544.2" FontFamily="Hacen Saudi Arabia" Background="#FF218280" FontSize="20" IsEnabled="False"/>
+            <CheckBox  x:Name="cbxUsers" Content="ادارة المستخدمين" Height="50" HorizontalAlignment="Right" FlowDirection="RightToLeft" Margin="0,185,786,480.2" FontFamily="Hacen Saudi Arabia" Background="#FF218280" FontSize="20" IsEnabled="False"/>
+            <CheckBox  x:Name="cbxSettings" Content="الاعدادات" Height="50" HorizontalAlignment="Right" FlowDirection="RightToLeft" Margin="0,240,786,425" FontFamily="Hacen Saudi Arabia" Background="#FF218280" FontSize="20" IsEnabled="False"/>
+        </Grid>
+        <Border Height="305" Width="285" Background="White" VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="40 45 0 0" CornerRadius="20" Grid.Column="2">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="6"/>
+            </Border.Effect>
+        </Border>
+        <Border Height="95" Width="345" Background="White" VerticalAlignment="Top" HorizontalAlignment="Right"  Margin="0 255 35 0" CornerRadius="20" Grid.Column="2">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="6"/>
+            </Border.Effect>
+
+        </Border>
+        <Grid Background="Black" Height="100" Width="40" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,70,360.2" RenderTransformOrigin="0.72,0.726"></Grid>
+        <Grid Background="Black" Height="100" Width="40" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,305,360.2" ></Grid>
+        <Grid Background="White" Height="10" Width="50" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,70,421.2"></Grid>
+        <Grid Background="White" Height="10" Width="50" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,60,395.2"></Grid>
+        <Grid Background="White" Height="10" Width="50" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,299,421.2"></Grid>
+        <Grid Background="White" Height="10" Width="50" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,299,395.2"></Grid>
+        <TextBox x:Name="txtSerch"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialdesign:HintAssist.Hint=" البحث باسم المستخدم" FontFamily="Hacen Saudi Arabia" FontSize="15" Width="150" Height="40" FlowDirection="RightToLeft" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,272,130,0"  TextChanged="txtSerch_TextChanged"/>
+
+        <Grid x:Name="grdbtn">
+            <Button  x:Name="btnSave" Content=" حفظ" FontFamily="Hacen Saudi Arabia" Width="210" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="75,177,0,0" materialdesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="6" BorderBrush="black"  Background="#FF218280" Foreground="White"  FontSize="20" IsEnabled="False" materialdesign:ButtonAssist.CornerRadius="10" Click="btnSave_Click"/>
+            <Button  x:Name="btnNew" Content="جديد" FontFamily="Hacen Saudi Arabia" Width="210" Height="50" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,105,1015,0" materialdesign:ShadowAssist.ShadowDepth="Depth3"  BorderThickness="6" BorderBrush="black"  Background="#FF218280" Foreground="White" FontSize="20" materialdesign:ButtonAssist.CornerRadius="10" IsEnabled="True" Click="btnNew_Click"/>
+            <Button  x:Name="btnDelete" Content="حذف" FontFamily="Hacen Saudi Arabia" Width="210" Height="50" VerticalAlignment="Top"  HorizontalAlignment="Left" Margin="75,253,0,0" materialdesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="6" BorderBrush="black"  Background="#FF218280" Foreground="White" FontSize="20"  materialdesign:ButtonAssist.CornerRadius="10"  IsEnabled="False" Click="btnDelete_Click"/>
+        </Grid>
+
+    </Grid>
+</UserControl>

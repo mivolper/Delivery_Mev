@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="delivery.USC.delegate"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:delivery.USC"
+             mc:Ignorable="d" 
+             xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="715" d:DesignWidth="1300" Loaded="UserControl_Loaded">
+    <Grid Background="#FF218280" >
+
+        <Border Height="650" Width="1240" Background="Black" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Margin="0,0,30,30.2" CornerRadius="20" Grid.ColumnSpan="2">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="6"/>
+            </Border.Effect>
+        </Border>
+        <Border Height="305" Width="640" Background="White" VerticalAlignment="Top" HorizontalAlignment="Right"  Margin="0 45 35 0" CornerRadius="20" Grid.Column="1">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="6"/>
+            </Border.Effect>
+        </Border>
+        <Border Height="155" Width="575" HorizontalAlignment="Left" VerticalAlignment="Top" Background="White" Margin="40 45 0 0" CornerRadius="20" Grid.ColumnSpan="2">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="6"/>
+            </Border.Effect>
+        </Border>
+        <Border Height="135" Width="575" Background="White" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,215,685,0" CornerRadius="20" Grid.ColumnSpan="2">
+
+            <TextBox  x:Name="txtSerch"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialdesign:HintAssist.Hint="بحث"  FontFamily="Hacen Saudi Arabia" FontSize="18" Width="200" Height="50" FlowDirection="RightToLeft" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,-121,320.2,0" TextChanged="txtSerch_TextChanged"/>
+
+        </Border>
+
+        <ComboBox x:Name="cmbSerch" SelectedIndex="0" Style="{StaticResource MaterialDesignFloatingHintComboBox}" Width="200" Height="50" HorizontalAlignment="Right" FontFamily="Hacen Saudi Arabia" VerticalAlignment="Top" Margin="0,94,760,0" Background="White" FlowDirection="RightToLeft" Foreground="Black" FontSize="18" >
+            <ComboBoxItem Content=" البحث باسم المندوب" />
+            <ComboBoxItem Content=" البحث برقم الهاتف"/>
+        </ComboBox>
+
+
+        <Border Height="320" Width="1220" VerticalAlignment="Bottom" Background="White" Margin="42,0,38,35.2" CornerRadius="20" Grid.ColumnSpan="2">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="6"/>
+            </Border.Effect>
+            <DataGrid  x:Name="dgvDelegate"  FlowDirection="RightToLeft" HorizontalAlignment="Right" Background="White" Margin="15 10 20 0"  FontFamily="Hacen Saudi Arabia"  ItemsSource="{Binding}" AutoGenerateColumns="False" SelectionUnit="FullRow" IsReadOnly="True" SelectionMode="Extended" SelectionChanged="dgvDelegate_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="الرقم" Width="70" Binding="{Binding RowNum}"/>
+                    <DataGridTextColumn Header="اسم المندوب" Width="300"  Binding="{Binding Name}"/>
+                    <DataGridTextColumn Header="رقم الهاتف الاول" Width="200"  Binding="{Binding  Phone1}" />
+                    <DataGridTextColumn Header="رقم الهاتف الثاني" Width="200"  Binding="{Binding  Phone2}"/>
+                    <DataGridTextColumn Header="الراتب" Width="150"  Binding="{Binding  Salary}"/>
+                    <DataGridTextColumn Header="ملاحظة" Width="460"  Binding="{Binding  Note}"/>
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+
+        <TextBlock Text="ادارة المندوبين" FlowDirection="RightToLeft" FontFamily="Hacen Saudi Arabia" FontSize="22" Foreground="#FF218280" Margin="0,66,497,0" Width="150" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="1"/>
+        <Grid x:Name="grdtxt" Grid.ColumnSpan="2" Margin="0,0,0,0.2">
+            <TextBox  x:Name="txtName" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialdesign:HintAssist.Hint="اسم المندوب" FontFamily="Hacen Saudi Arabia" FontSize="18" Width="250" Height="50" FlowDirection="RightToLeft" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,66,90,0" IsEnabled="False" GotMouseCapture="txtName_GotMouseCapture"/>
+            <TextBox x:Name="txtPhone1" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialdesign:HintAssist.Hint="رقم الهاتف الاول" FontFamily="Hacen Saudi Arabia" FontSize="18" Width="200" Height="50" FlowDirection="RightToLeft" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,130,90,0" IsEnabled="False" GotMouseCapture="txtName_GotMouseCapture" PreviewTextInput="txtPhone1_PreviewTextInput"/>
+            <TextBox x:Name="txtPhone2" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialdesign:HintAssist.Hint="رقم الهاتف الثاني" FontFamily="Hacen Saudi Arabia" FontSize="18" Width="200" Height="50" FlowDirection="RightToLeft" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,130,328,0" IsEnabled="False" GotMouseCapture="txtName_GotMouseCapture" PreviewTextInput="txtPhone1_PreviewTextInput"/>
+            <TextBox x:Name="txtSalary" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialdesign:HintAssist.Hint="الراتب" FontFamily="Hacen Saudi Arabia" FontSize="18" Width="150" Height="50" FlowDirection="RightToLeft" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,202,90,0" IsEnabled="False" GotMouseCapture="txtName_GotMouseCapture" PreviewTextInput="txtPhone1_PreviewTextInput" />
+            <TextBox x:Name="txtNote" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialdesign:HintAssist.Hint="ملاحظة" FontFamily="Hacen Saudi Arabia" FontSize="18" Width="400" Height="50" FlowDirection="RightToLeft" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,265,90,0" IsEnabled="False" GotMouseCapture="txtName_GotMouseCapture"/>
+        </Grid>
+
+        <Grid x:Name="grdbtn" Grid.ColumnSpan="2" Margin="0,0,0,0.2">
+            <Button  x:Name="btnSave" Content=" حفظ" FontFamily="Hacen Saudi Arabia" Width="150" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="248,261,0,0" materialdesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="6" BorderBrush="black"  Background="#FF218280" Foreground="White"  FontSize="20" IsEnabled="False" materialdesign:ButtonAssist.CornerRadius="10" Click="btnSave_Click" RenderTransformOrigin="0.384,0.552"/>
+            <Button  x:Name="btnNew" Content="جديد" FontFamily="Hacen Saudi Arabia" Width="150" Height="50" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,261,718,0" materialdesign:ShadowAssist.ShadowDepth="Depth3"  BorderThickness="6" BorderBrush="black"  Background="#FF218280" Foreground="White" FontSize="20" materialdesign:ButtonAssist.CornerRadius="10" IsEnabled="True" Click="btnNew_Click"/>
+            <Button  x:Name="btnDelete" Content="حذف" FontFamily="Hacen Saudi Arabia" Width="150" Height="50" VerticalAlignment="Top"  HorizontalAlignment="Left" Margin="65,261,0,0" materialdesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="6" BorderBrush="black"  Background="#FF218280" Foreground="White" FontSize="20"  materialdesign:ButtonAssist.CornerRadius="10" IsEnabled="False" Click="btnDelete_Click"/>
+        </Grid>
+    </Grid>
+</UserControl>

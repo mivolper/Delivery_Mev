@@ -1,0 +1,15 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:delivery.CReport"
+        xmlns:Viewer="clr-namespace:SAPBusinessObjects.WPF.Viewer;assembly=SAPBusinessObjects.WPF.Viewer" x:Class="delivery.CReport.Report_Wnidow"
+        mc:Ignorable="d"
+        Title="REPORT_WINDOW" Height="700" Width="1000">
+    <Grid>
+
+        <Viewer:CrystalReportsViewer x:Name="ReportVW" HorizontalAlignment="Left" Height="670" Width="990" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

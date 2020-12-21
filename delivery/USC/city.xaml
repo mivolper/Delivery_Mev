@@ -1,0 +1,128 @@
+﻿<UserControl x:Class="delivery.USC.city"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:delivery.USC"
+             mc:Ignorable="d" 
+             xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="715" d:DesignWidth="1300" Loaded="UserControl_Loaded">
+    <Grid  Background="#FF218280">
+        <Border Height="650" Width="440" Background="Black" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Margin="0 0 30 30" CornerRadius="20" Grid.Column="2">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="6"/>
+            </Border.Effect>
+        </Border>
+        <Border Height="195" Width="425" Background="White" VerticalAlignment="Top" HorizontalAlignment="Right"  Margin="0 45 35 0" CornerRadius="20" Grid.Column="2">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="6"/>
+            </Border.Effect>
+        </Border>
+        <Border Height="360" Width="425" Background="White" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Margin="0 0 35 40" CornerRadius="20" Grid.Column="2">
+            <DataGrid  x:Name="dgvProvince"  FlowDirection="RightToLeft" Width="400" HorizontalAlignment="Right" Background="White" Margin="10,10,10.6,10"  FontFamily="Hacen Saudi Arabia"  ItemsSource="{Binding}" AutoGenerateColumns="False" SelectionUnit="FullRow" IsReadOnly="True" SelectionMode="Extended" SelectionChanged="dgvProvince_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="الرقم" Width="70" Binding="{Binding  RowNum}"  />
+                    <DataGridTextColumn Header="اسم الإقليم" Width="300"  Binding="{Binding ProvinceName}" />
+                </DataGrid.Columns>
+            </DataGrid>
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="6"/>
+            </Border.Effect>
+        </Border>
+
+        <TextBlock  Text="اسعار التوصيل" FlowDirection="RightToLeft" FontFamily="Hacen Saudi Arabia" FontSize="22" Foreground="#FF218280" Margin="0,67,80,0" Width="150" Height="40" HorizontalAlignment="Right" VerticalAlignment="Top" Grid.Column="2"/>
+        <TextBox x:Name="txtProvince"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialdesign:HintAssist.Hint="اسم الإقليم" FontFamily="Hacen Saudi Arabia" FontSize="18" Width="200" Height="50" FlowDirection="RightToLeft" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,120,80,0" Grid.Column="2" IsEnabled="False"  GotMouseCapture="txtProvince_GotMouseCapture"/>
+
+        <Grid x:Name="grdbtnProvince">
+            <Button x:Name="btnSave"  Content=" حفظ" FontFamily="Hacen Saudi Arabia" Width="100" Height="50" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 118 340 0" materialdesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="6" BorderBrush="black"  Background="#FF218280" Foreground="White"  FontSize="20"  Grid.ColumnSpan="3"   materialdesign:ButtonAssist.CornerRadius="10" IsEnabled="False" Click="btnSave_Click"/>
+            <Button  x:Name="btnNew" Content="جديد" FontFamily="Hacen Saudi Arabia" Width="100" Height="50" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 58 340 0" materialdesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="6" BorderBrush="black"  Background="#FF218280" Foreground="White" FontSize="20" Grid.Column="2" materialdesign:ButtonAssist.CornerRadius="10" IsEnabled="False" Click="btnNew_Click"/>
+            <Button  x:Name="btnDelete"  Content="حذف" FontFamily="Hacen Saudi Arabia" Width="100" Height="50" VerticalAlignment="Top"  HorizontalAlignment="Right" Margin="0 178 340 0" materialdesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="6" BorderBrush="black"  Background="#FF218280" Foreground="White" FontSize="20" Grid.ColumnSpan="3"  materialdesign:ButtonAssist.CornerRadius="10"  IsEnabled="False"  Click="btnDelete_Click"/>
+        </Grid>
+
+        <Border Height="65" Width="425" Background="White" VerticalAlignment="Top" HorizontalAlignment="Right"  Margin="0 245 35 0" CornerRadius="20" Grid.Column="2">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="6"/>
+            </Border.Effect>
+        </Border>
+
+        <TextBox x:Name="txtSearchProvince"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialdesign:HintAssist.Hint=" البحث باسم الإقليم" FontFamily="Hacen Saudi Arabia" FontSize="15" Width="200" Height="40" FlowDirection="RightToLeft" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,255,145,0" Grid.Column="2" TextChanged="txtSearchProvince_TextChanged"/>
+
+        <Grid Background="Black" Height="70" Width="40" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 75 404"></Grid>
+        <Grid Background="Black" Height="70" Width="40" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 380 404"></Grid>
+        <Grid Background="White" Height="10" Width="50" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 70 446"></Grid>
+        <Grid Background="White" Height="10" Width="50" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 70 420"></Grid>
+        <Grid Background="White" Height="10" Width="50" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 375 420"></Grid>
+        <Grid Background="White" Height="10" Width="50" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 375 446"></Grid>
+        <Border Height="650" Width="740" Background="Black" VerticalAlignment="Bottom" HorizontalAlignment="Left"  Margin="30 0 0 30" CornerRadius="20" Grid.Column="2">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="6"/>
+            </Border.Effect>
+        </Border>
+        <Border Height="200" Width="520" Background="White" VerticalAlignment="Top" HorizontalAlignment="Right"  Margin="0,45,540,0" CornerRadius="20">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="6"/>
+            </Border.Effect>
+        </Border>
+        <Border Height="60" Width="525" Background="White" VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="240,250,0,0" CornerRadius="20">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="6"/>
+            </Border.Effect>
+        </Border>
+        <Border Height="365" Width="725" Background="White" VerticalAlignment="Bottom" HorizontalAlignment="Left"  Margin="40 0 0 35" CornerRadius="20" Grid.Column="2">
+            <DataGrid x:Name="dgvCity"  Width="705"  FlowDirection="RightToLeft" HorizontalAlignment="Right" Background="White" Margin="0,10,10,10"  FontFamily="Hacen Saudi Arabia"  ItemsSource="{Binding}" AutoGenerateColumns="False" SelectionUnit="FullRow" IsReadOnly="True" SelectionMode="Extended"  SelectionChanged="dgvCity_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="الرقم" Width="70" Binding="{Binding RowNum1 }"  />
+                    <DataGridTextColumn Header="المدينة" Width="170"  Binding="{Binding CityName}" />
+                    <DataGridTextColumn Header="سعر التوصيل" Width="125"  Binding="{Binding PriceMen}" />
+                    <DataGridTextColumn Header="الإقليم" Width="170"  Binding="{Binding ProvinceName}" />
+                    <DataGridTextColumn Header="الايام" Width="250"  Binding="{Binding Days}" />
+                </DataGrid.Columns>
+            </DataGrid>
+            
+
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="6"/>
+            </Border.Effect>
+            
+        </Border>
+
+        <Grid x:Name="grdtxtCity">
+            <TextBox x:Name="txtCity" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialdesign:HintAssist.Hint="المدينة" FontFamily="Hacen Saudi Arabia" FontSize="18" Width="200" Height="50" FlowDirection="RightToLeft" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,76,559,0" RenderTransformOrigin="0.502,1.36" IsEnabled="False" GotMouseCapture="txtProvince_GotMouseCapture"/>
+            <TextBox x:Name="txtPriceMen"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialdesign:HintAssist.Hint="سعر التوصيل" FontFamily="Hacen Saudi Arabia" FontSize="18" Width="142" Height="50" FlowDirection="RightToLeft" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,76,803,0" IsEnabled="False" GotMouseCapture="txtProvince_GotMouseCapture" PreviewTextInput="txtPriceMen_PreviewTextInput"/>
+            <ComboBox  x:Name="cmbProvince" Style="{StaticResource MaterialDesignFloatingHintComboBox}"   materialdesign:HintAssist.Hint= "الإقليم" Width="150" Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Hacen Saudi Arabia"  Margin="591,150,0,0" Background="White" FlowDirection="RightToLeft" Foreground="Black" FontSize="18"  IsEnabled="False" />
+            <TextBox  x:Name="txtDays"  Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialdesign:HintAssist.Hint="الايام" FontFamily="Hacen Saudi Arabia" FontSize="18" Width="310" Height="50" FlowDirection="RightToLeft" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,151,730,0" IsEnabled="False" GotMouseCapture="txtProvince_GotMouseCapture"  />
+        </Grid>
+
+        <Grid Background="Black" Height="60" Width="50" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 605 406"></Grid>
+        <Grid Background="Black" Height="60" Width="50" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="310,0,0,405.2" RenderTransformOrigin="1.765,0.573"></Grid>
+        <Grid Background="White" Height="10" Width="90" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 600 416">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+        <Grid Background="White" Height="10" Width="90" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 600 446"></Grid>
+        <Grid Background="White" Height="10" Width="90" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="295,0,0,420.2"></Grid>
+        <Border Height="265" Width="195" Background="White" VerticalAlignment="Top" HorizontalAlignment="Left"  Margin="40 45 0 0" CornerRadius="20" Grid.Column="2">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="6"/>
+            </Border.Effect>
+        </Border>
+
+        <Grid x:Name="grdbtnCity">
+            <Button x:Name="btnSaveCity"  Content=" حفظ" FontFamily="Hacen Saudi Arabia" Width="150" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="62,118,0,0" materialdesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="6" BorderBrush="black"  Background="#FF218280" Foreground="White"  FontSize="20"   materialdesign:ButtonAssist.CornerRadius="10"  IsEnabled="False"  Click="btnSaveCity_Click"/>
+            <Button  x:Name="btnNewCity" Content="جديد" FontFamily="Hacen Saudi Arabia" Width="150" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="62,63,0,0" materialdesign:ShadowAssist.ShadowDepth="Depth3"  BorderThickness="6" BorderBrush="black"  Background="#FF218280" Foreground="White" FontSize="20" materialdesign:ButtonAssist.CornerRadius="10"  Click="btnNewCity_Click" RenderTransformOrigin="0.248,0.576"/>
+            <Button  x:Name="btnDeleteCity"  Content="حذف" FontFamily="Hacen Saudi Arabia" Width="150" Height="50" VerticalAlignment="Top"  HorizontalAlignment="Left" Margin="62,173,0,0" materialdesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="6" BorderBrush="black"  Background="#FF218280" Foreground="White" FontSize="20"  materialdesign:ButtonAssist.CornerRadius="10"  IsEnabled="False" Click="btnDeleteCity_Click"/>
+        </Grid>
+        
+        <Button  x:Name="btnPrint"  Content="طباعة" FontFamily="Hacen Saudi Arabia" Width="150" Height="50" VerticalAlignment="Top"  HorizontalAlignment="Left" Margin="62,228,0,0" materialdesign:ShadowAssist.ShadowDepth="Depth3" BorderThickness="6" BorderBrush="black"  Background="#FF218280" Foreground="White" FontSize="20"  materialdesign:ButtonAssist.CornerRadius="10"  IsEnabled="True" Click="btnPrint_Click"/>
+
+        <Grid Background="White" Height="10" Width="90" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="295,0,0,446.2"></Grid>
+        <TextBox x:Name="txtSearchCity"   Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialdesign:HintAssist.Hint="البحث باسم المدينة" FontFamily="Hacen Saudi Arabia" FontSize="15" Width="190" Height="40" FlowDirection="RightToLeft" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,258,695,0" RenderTransformOrigin="0.502,1.36"  TextChanged="txtSearchCity_TextChanged"/>
+        <Grid Background="Black" Height="10" Width="70" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 80 460 0"></Grid>
+        <Grid Background="Black" Height="10" Width="70" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0 100 460 0"></Grid>
+        <Grid Background="Black" Height="10" Width="70" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 460 85"></Grid>
+        <Grid Background="Black" Height="10" Width="70" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0 0 460 65"></Grid>
+      
+    </Grid>
+</UserControl>

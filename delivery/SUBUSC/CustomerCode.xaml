@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="delivery.SUBUSC.CustomerCode"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:delivery.SUBUSC"
+             mc:Ignorable="d" 
+             xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             d:DesignHeight="680" d:DesignWidth="1000" Loaded="UserControl_Loaded">
+
+    <Grid Background="#FF218280" Margin="0,24,0,0" >
+
+        <Border Height="625" Width="970" Background="Black" VerticalAlignment="Bottom" HorizontalAlignment="Center"  Margin="10,0,20,20" CornerRadius="20">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="6"/>
+            </Border.Effect>
+        </Border>
+        <Border Height="117" Background="White" VerticalAlignment="Top"  Margin="20,19,20,0" CornerRadius="20">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="6"/>
+            </Border.Effect>
+        </Border>
+        <Grid Background="Black" Height="130" Width="40" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,90,515" RenderTransformOrigin="5.67,0.401" ></Grid>
+        <Grid Background="Black" Height="125" Width="40" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,878,520" RenderTransformOrigin="5.67,0.401" ></Grid>
+        <Grid Background="White" Height="15" Width="50" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,80,587" RenderTransformOrigin="1.328,0.347" >
+
+        </Grid>
+        <Grid Background="White" Height="15" Width="50" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,80,548" RenderTransformOrigin="4.511,0.5" >
+        </Grid>
+        <Grid Background="White" Height="15" Width="50" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,868,587" RenderTransformOrigin="1.696,1.173" >
+
+        </Grid>
+        <Grid Background="White" Height="15" Width="50" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,868,548" RenderTransformOrigin="4.511,0.5" >
+        </Grid>
+        <Border Height="495" VerticalAlignment="Bottom" Background="White" Margin="20,0,20,20" CornerRadius="20">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="6"/>
+            </Border.Effect>
+            <Grid>
+                <DataGrid  x:Name="dgvCustomerOrder"  FlowDirection="RightToLeft" HorizontalAlignment="Right" Background="White" Margin="0,10,16,80"  FontFamily="Hacen Saudi Arabia"  ItemsSource="{Binding}" AutoGenerateColumns="False" SelectionUnit="FullRow" IsReadOnly="False" SelectionMode="Extended" CanUserAddRows="False" Width="934"   SelectionChanged="dgvCustomerOrder_SelectionChanged">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="الرقم" Width="70" Binding="{Binding RowNum}"/>
+                        <DataGridTextColumn Header="اسم المستلم" Width="150"  Binding="{Binding  Recipient}"/>
+                        <DataGridTextColumn Header="هاتف المستلم 1" Width="120"  Binding="{Binding  RecipientPhone1}"/>
+                        <DataGridTextColumn Header="هاتف المستلم 2" Width="120"  Binding="{Binding  RecipientPhone2}"/>
+                        <DataGridTextColumn Header="العنوان" Width="130"  Binding="{Binding  Address}"/>
+                        <DataGridTextColumn Header="المدينة" Width="130"  Binding="{Binding  CityName}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="مبلغ الطرود" Width="100"  Binding="{Binding  PackagePrice}" IsReadOnly="True" Foreground="Red"/>
+                        <DataGridTextColumn Header="عدد القطع" Width="100"  Binding="{Binding  PackageNumber}" IsReadOnly="True"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Border>
+
+        <Grid x:Name="grdEdit" Width="650" Height="450">
+
+        </Grid>
+        <TextBox  x:Name="txtName" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialdesign:HintAssist.Hint="اسم الزبون" FontFamily="Hacen Saudi Arabia" FontSize="18" Width="250" Height="50" FlowDirection="RightToLeft" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,19,156,0"   RenderTransformOrigin="0.76,0.74" IsReadOnly="True"/>
+        <TextBox  x:Name="txtCode" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialdesign:HintAssist.Hint="كود الزبون" FontFamily="Hacen Saudi Arabia" FontSize="18" Width="248" Height="50" FlowDirection="RightToLeft" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,78,156,0" IsReadOnly="True"  />
+        <TextBox x:Name="txtPhone1" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialdesign:HintAssist.Hint="رقم الهاتف 1" FontFamily="Hacen Saudi Arabia" FontSize="18" Width="200" Height="50" FlowDirection="RightToLeft" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,19,438,0"  RenderTransformOrigin="0.548,-0.392" IsReadOnly="True"/>
+        <TextBox x:Name="txtPhone2" Style="{StaticResource MaterialDesignFloatingHintTextBox}" materialdesign:HintAssist.Hint="رقم الهاتف 2" FontFamily="Hacen Saudi Arabia" FontSize="18" Width="200" Height="50" FlowDirection="RightToLeft" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,78,438,0"  RenderTransformOrigin="0.548,-0.392" IsReadOnly="True"/>
+        <Button  x:Name="btnAdd"  Content="اضافة" FontFamily="Hacen Saudi Arabia" Width="154" Height="50" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,78,684,0" materialdesign:ShadowAssist.ShadowDepth="Depth3"  BorderThickness="6" BorderBrush="black"  Background="#FF218280" Foreground="White" FontSize="20" materialdesign:ButtonAssist.CornerRadius="10" IsEnabled="False" Click="btnAdd_Click"/>
+        <Grid Height="2" Background="Black" VerticalAlignment="Bottom"  Margin="40,0,40,90"/>
+        <Button  x:Name="btnExit"  Content="خروج" FontFamily="Hacen Saudi Arabia" Width="134" Height="50" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,571,826,0" materialdesign:ShadowAssist.ShadowDepth="Depth3"  BorderThickness="6" BorderBrush="black"  Background="#FF218280" Foreground="White" FontSize="20" materialdesign:ButtonAssist.CornerRadius="10" IsEnabled="True" Click="btnExit_Click"/>
+
+
+
+
+    </Grid>
+</UserControl>

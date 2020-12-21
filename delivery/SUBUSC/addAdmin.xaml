@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="delivery.SUBUSC.addAdmin"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:delivery.SUBUSC"
+             mc:Ignorable="d" 
+               xmlns:materialdesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             d:DesignHeight="320" d:DesignWidth="520">
+    <Grid Background="#FF218280" >
+        <Border Height="300" Width="500" Background="White" VerticalAlignment="Top" HorizontalAlignment="Right"  Margin="0 10 10 0" CornerRadius="20" Grid.Column="2">
+
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="6"/>
+            </Border.Effect>
+        </Border>
+        <TextBlock Text="يرجى ادخال الاسم وكلمة المرور للدخول لاعدادات النظام" Foreground="#FF218280" FontSize="17" FontStyle="Normal" FontFamily="Hacen Saudi Arabia" Margin="0,35,64,0" Height="50" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+        <TextBox x:Name="txtUserName" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="310" Height="55" FontSize="18" FontFamily="Hacen Saudi Arabia" materialdesign:HintAssist.Hint="اسم المستخدم" FlowDirection="RightToLeft"  Margin="0,70,65,0" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+        <PasswordBox x:Name="txtPassWard"  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" materialdesign:HintAssist.Hint="كلمة المرور" FontFamily="Hacen Saudi Arabia" Width="310" Height="50" FlowDirection="RightToLeft" TabIndex="1" FontSize="18" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,130,65,0"/>
+        <Button x:Name="btnOk" Content="دخول" FontFamily="Hacen Saudi Arabia" Width="150" Height="40" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,215,80,0" materialdesign:ShadowAssist.ShadowDepth="Depth3"  BorderThickness="4" BorderBrush="#FF218280" Background="White" Foreground="Black" FontSize="20" materialdesign:ButtonAssist.CornerRadius="10" Click="btnOk_Click"/>
+        <Button x:Name="btnClose" Content="اغلاق" FontFamily="Hacen Saudi Arabia" Width="150" Height="40" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,215,285,0" materialdesign:ShadowAssist.ShadowDepth="Depth3"  BorderThickness="4" BorderBrush="#FF218280" Background="White" Foreground="Black" FontSize="20" materialdesign:ButtonAssist.CornerRadius="10" Click="btnClose_Click"/>
+
+    </Grid>
+</UserControl>
